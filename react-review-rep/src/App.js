@@ -10,6 +10,7 @@ import {
   HomePage,
   Login,
   Logout,
+  NavBar,
   Register,
   SearchPosts,
 } from "./components";
@@ -30,6 +31,7 @@ function App() {
         <Login />
         <Logout /> */}
         <Route path="/Register" component={Register}/>
+        <Route path="/Login" component={Login} />
         {/* <SearchPosts /> */}
       </header>
     </div>
