@@ -1,4 +1,5 @@
 import logo from "./logo.svg";
+import {StateProvider} from './state';
 import "./App.css";
 
 import {
@@ -20,6 +21,7 @@ import {
 
 function App() {
   return (
+    <StateProvider>
     <div className="App">
       <header className="App-header">
       <Route exact path = "/" component = {HomePage} />
@@ -36,6 +38,7 @@ function App() {
         {/* <SearchPosts /> */}
       </header>
     </div>
+    </StateProvider>
   );
 }
 
