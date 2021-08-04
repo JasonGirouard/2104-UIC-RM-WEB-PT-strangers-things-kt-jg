@@ -4,6 +4,8 @@ import NavBar from "./NavBar";
 import {RegisterUser} from "./utils";
 import ReactDOM from "react-dom";
 
+
+
 const Register = () => {
 
     return (
