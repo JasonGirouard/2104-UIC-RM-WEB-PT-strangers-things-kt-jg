@@ -1,13 +1,10 @@
 // username: JasonTGirouard
 // password: Girouard
-
 // REACT IS A FICKLE, WEAK MAN. 
 // HOW IS THIS FUNCTION SUPPOSED TO PERSIST THE GLOBAL STATE. FUCKING HOW? 
 
 
-
 export function RegisterUser(creds) {
- 
 
   // I just took the sample call verbatim and placed a username and password there
   return fetch(
@@ -56,6 +53,7 @@ export function LoginUser(creds) {
     .then((response) => response.json())
     .then((result) => {
       console.log(result);
+      return result
     })
     .catch(console.error);
 }
