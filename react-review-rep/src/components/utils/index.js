@@ -1,8 +1,16 @@
-export function RegisterUser() {
-  console.log("testinRegisterUser");
+// username: JasonTGirouard
+// password: Girouard
+
+// REACT IS A FICKLE, WEAK MAN. 
+// HOW IS THIS FUNCTION SUPPOSED TO PERSIST THE GLOBAL STATE. FUCKING HOW? 
+
+
+
+export function RegisterUser(creds) {
+ 
 
   // I just took the sample call verbatim and placed a username and password there
-  fetch(
+  return fetch(
     "https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-PT/users/register",
     {
       method: "POST",
@@ -11,33 +19,37 @@ export function RegisterUser() {
       },
       body: JSON.stringify({
         user: {
-          username: "JasonTGirouard",
-          password: "Girouard",
+          username: creds.username,
+          password: creds.password,
         },
       }),
     }
   )
     .then((response) => response.json())
     .then((result) => {
-      console.log(result);
+            
+      console.log(result)
+      return result
+
+
     })
     .catch(console.error);
 }
 
-export function LoginUser() {
+export function LoginUser(creds) {
   console.log("test login User");
 
   // again I just took the sample call verbatim but placed my username/password
 
-  fetch("https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-PT/users/login", {
+  return fetch("https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-PT/users/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
       user: {
-        username: "JasonTGirouard",
-        password: "Girouard",
+        username: creds.username,
+        password: creds.password,
       },
     }),
   })
