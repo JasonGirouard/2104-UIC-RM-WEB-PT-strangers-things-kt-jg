@@ -2,18 +2,22 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
 import { LoginUser } from "./utils";
+import APIResponseMessage from "./APIResponseMessage";
 
 const Login = () => {
+    let response = {};
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [APIResponse, setAPIResponse] = useState(response);
 
-    const onFormSubmit = (event) => {
+    const onFormSubmit = async (event) => {
         event.preventDefault();
         const creds = {
             username,
             password,
         }
-        LoginUser(creds)
+        response = await LoginUser(creds)
+        setAPIResponse(response)
     }
 
     const updateUsername = (event) => {
@@ -39,6 +43,8 @@ const Login = () => {
 
         <button type="submit"> Login </button>
       </form>
+
+      <APIResponseMessage message = {APIResponse}/>
 
       
     </div>
