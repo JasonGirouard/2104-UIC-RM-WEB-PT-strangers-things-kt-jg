@@ -13,6 +13,7 @@ import {
   NavBar,
   Register,
   SearchPosts,
+  SinglePost,
 } from "./components";
 
  import {Switch, Route} from "react-router-dom";

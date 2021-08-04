@@ -10,4 +10,5 @@ export { default as Logout} from './Logout';
 export { default as NavBar } from './NavBar';
 export { default as Register } from './Register';
 export { default as SearchPosts } from './SearchPosts';
+export { default as SinglePost } from './SinglePost';
 
