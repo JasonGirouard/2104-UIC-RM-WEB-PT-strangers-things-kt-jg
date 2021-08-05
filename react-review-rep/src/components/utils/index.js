@@ -24,19 +24,12 @@ export function RegisterUser(creds) {
   )
     .then((response) => response.json())
     .then((result) => {
-            
-      console.log(result)
       return result
-
-
     })
     .catch(console.error);
 }
 
 export function LoginUser(creds) {
-  console.log("test login User");
-
-  // again I just took the sample call verbatim but placed my username/password
 
   return fetch("https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-PT/users/login", {
     method: "POST",
@@ -58,26 +51,8 @@ export function LoginUser(creds) {
     .catch(console.error);
 }
 
-// I took the sample call and converted it to an async await function
-// Im not sure why it is console logs the same data twice....it does that using either async await or a normal function
-
-// export function getPosts() {
-
-// return fetch('https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-PT/posts')
-//   .then(response => response.json())
-//   .then(result => {
-//     console.log(result)
-//   // console.log('result',result)
-//     const posts = result.data.posts
-//     console.log('posts',posts)
-//     return posts;
-//   })
-//   .catch(console.error);
-// }
-
 
 export async function getPosts() {
-    console.log("test get Posts");
     try {
         const response = await fetch('https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-PT/posts')
         const data = await response.json();
@@ -89,5 +64,25 @@ export async function getPosts() {
         throw error
     }
     }
+
+export function createPost(post, token) {
+  
+  return console.log(`Bearer ${token}`);
+  // fetch('https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-PT/posts', {
+  //   method: "POST",
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': `Bearer ${token}`
+  //   },
+  //   body: JSON.stringify({
+  //     post
+  //   })
+  // }).then(response => response.json())
+  //   .then(result => {
+  //     console.log(result);
+  //   })
+  //   .catch(console.error);
+
+}
     
   

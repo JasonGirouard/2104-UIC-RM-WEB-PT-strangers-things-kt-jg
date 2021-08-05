@@ -3,7 +3,8 @@ import React, { createContext, useReducer } from "react";
 
 // Defining the starting point for our state
 const initialState = {
-    registerUserError: []
+    registerUserError: [],
+    isLoggedIn: false
     // Add new data to state here
   };
 
@@ -36,6 +37,18 @@ const StateProvider = ({ children }) => {
         };
         return newState;
       }
+
+      case "isLoggedIn": {
+        const newState = {
+            ...oldData,
+            isLoggedIn: action.value,
+
+        }
+        return newState;
+      }
+
+      
+
 
       // Add new state-changing methods here
 
