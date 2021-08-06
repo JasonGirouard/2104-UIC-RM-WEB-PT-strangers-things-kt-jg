@@ -46,7 +46,7 @@ const Register = () => {
           <input type="text" value={password} onChange={updatePassword} />
         </label>
 
-        <button type="submit"> Login </button>
+        <button type="submit"> Register </button>
       </form>
 
       <APIResponseMessage message={APIResponse} />
