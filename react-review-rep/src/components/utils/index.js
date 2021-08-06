@@ -67,21 +67,21 @@ export async function getPosts() {
 
 export function createPost(post, token) {
   
-  return console.log(`Bearer ${token}`);
-  // fetch('https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-PT/posts', {
-  //   method: "POST",
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     'Authorization': `Bearer ${token}`
-  //   },
-  //   body: JSON.stringify({
-  //     post
-  //   })
-  // }).then(response => response.json())
-  //   .then(result => {
-  //     console.log(result);
-  //   })
-  //   .catch(console.error);
+  return fetch('https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-PT/posts', {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      post
+    })
+  }).then(response => response.json())
+    .then(result => {
+      console.log(result);
+      return result
+    })
+    .catch(console.error);
 
 }
     

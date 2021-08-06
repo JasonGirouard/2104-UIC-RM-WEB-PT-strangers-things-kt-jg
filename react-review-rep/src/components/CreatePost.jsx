@@ -10,7 +10,7 @@ const CreatePost =  () => {
     const [Description, setDescription] = useState("");
     const [Price, setPrice] = useState("");
     const [Location, setLocation] = useState("");
-    const [willDeliver, setwillDeliver] = useState("");
+    const [willDeliver, setwillDeliver] = useState(false);
     const [APIResponse, setAPIResponse] = useState(response);
 
     const onFormSubmit = async (event) => {
@@ -20,7 +20,7 @@ const CreatePost =  () => {
 
         console.log('token here ',localStorage.getItem("token"))
 
-        // NOTE THAT IM HAVING DIFFICULTY READING THE TOKEN HERE
+        
 
         let token = localStorage.getItem("token");
         let post = {title: Title,description: Description,price: Price,location:Location,willDeliver: willDeliver}
