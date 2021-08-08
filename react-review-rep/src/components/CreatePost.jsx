@@ -50,9 +50,9 @@ const CreatePost = () => {
       <h3>Create Post</h3>
 
       {/* if the user is not logged in, send them to the login page */}
-      {/* {!localStorage.getItem("token")
+      {!localStorage.getItem("token")
         ? (window.location.pathname = "/Login")
-        : null} */}
+        : null}
 
       <form onSubmit={onFormSubmit}>
         <label>

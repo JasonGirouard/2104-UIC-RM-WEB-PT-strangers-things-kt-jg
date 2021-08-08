@@ -25,10 +25,10 @@ const Login = () => {
     //  send to homepage after 1.5 seconds
     // should adjust to use redirect but dont know how to at the moment
      
-      // setTimeout(() => {
-      //  // <Redirect to = "/" />
-      //    window.location.pathname = "/";
-      // }, 1500);
+      setTimeout(() => {
+       // <Redirect to = "/" />
+         window.location.pathname = "/";
+      }, 1500);
     }
   };
 

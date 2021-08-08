@@ -34,6 +34,10 @@ const HomePage = () => {
       tempMessages = tempMessages.filter(message => message.fromUser.username !== localStorage.getItem("username"))
       setUserPosts(tempPosts);
       setUserMessages(tempMessages);
+      dispatch( {
+        type: "Posts",
+        value: userPosts,
+      });
       //console.log(results)
     } else {
       const results = await getPosts();
