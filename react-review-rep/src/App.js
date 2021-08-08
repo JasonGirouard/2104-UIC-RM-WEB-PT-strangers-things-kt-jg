@@ -1,44 +1,34 @@
-import logo from "./logo.svg";
-import {StateProvider} from './state';
+import React, { useContext } from "react";
+import { store } from "./state";
 import "./App.css";
 
 import {
-  CreateMessage,
   CreatePost,
-  DeletePost,
-  DisplayPosts,
-  EditPost,
   HomePage,
   Login,
-  Logout,
-  NavBar,
+  PostDetails,
   Register,
   SearchPosts,
-  SinglePost,
 } from "./components";
 
- import {Switch, Route} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
+  const { state } = useContext(store);
+  console.log("state here: ", state);
+
   return (
-    <StateProvider>
     <div className="App">
-      <header className="App-header">
-      <Route exact path = "/" component = {HomePage} />
-        <Route path = "/CreatePost" component = {CreatePost} />
-        {/* <CreateMessage />
-        <DeletePost />
-        <DisplayPosts />
-        <EditPost />
-    
-        <Login />
-        <Logout /> */}
-        <Route path="/Register" component={Register}/>
+      <header className="App-header"></header>
+      <Switch>
+        <Route path="/CreatePost" component={CreatePost} />
+        <Route path="/Register" component={Register} />
         <Route path="/Login" component={Login} />
-        {/* <SearchPosts /> */}
-      </header>
+        <Route path="/Search" component={SearchPosts} />
+        <Route path="/Post_ID/:activePostId" component={PostDetails} />
+        <Route path="/" component={HomePage} />
+      </Switch>
     </div>
-    </StateProvider>
   );
 }
 

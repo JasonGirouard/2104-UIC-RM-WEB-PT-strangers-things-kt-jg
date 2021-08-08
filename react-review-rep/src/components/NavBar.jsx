@@ -1,46 +1,41 @@
-import React, { useEffect, useState, useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import Logout from "./Logout";
-import { store } from "../state";
 
 const NavBar = () => {
-  const { state, dispatch } = useContext(store);
-
   const LogOutUser = () => {
-    dispatch({
-      type: "isLoggedIn",
-      value: false,
-    });
-    localStorage.setItem("username", "");
-    localStorage.setItem("password", "");
     localStorage.setItem("token", "");
-    localStorage.setItem("isLoggedIn", false);
+    localStorage.setItem("username","")
     window.location.pathname = "/";
   };
 
   return (
-    <div>
+    <div className = "Nav">
+
       <Link to="/">
         <button>Home Page</button>
+      </Link>
+
+      <Link to="/Search">
+        <button>Search</button>
       </Link>
 
       <Link to="/CreatePost">
         <button>CreatePost</button>
       </Link>
 
-      {!JSON.parse(localStorage.getItem("isLoggedIn")) ? (
+      {!localStorage.getItem("token") ? (
         <Link to="/Register">
           <button>Register</button>
         </Link>
       ) : null}
 
-      {!JSON.parse(localStorage.getItem("isLoggedIn")) ? (
+      {!localStorage.getItem("token") ? (
         <Link to="/Login">
           <button>Login</button>
         </Link>
       ) : null}
 
-      {JSON.parse(localStorage.getItem("isLoggedIn")) ? (
+      {localStorage.getItem("token") ? (
         <button
           onClick={() => {
             LogOutUser();
