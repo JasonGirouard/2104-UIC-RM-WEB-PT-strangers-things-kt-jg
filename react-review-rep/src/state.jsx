@@ -3,8 +3,10 @@ import React, { createContext, useReducer } from "react";
 
 // Defining the starting point for our state
 const initialState = {
-    registerUserError: [],
-    isLoggedIn: false
+    activePost: {},
+    Posts: {},
+    Messages: {},
+    activeMessage: {}
     // Add new data to state here
   };
 
@@ -30,18 +32,38 @@ const StateProvider = ({ children }) => {
     // });
 
     switch (action.type) {
-      case "addResponses": {
+
+      case "activePost": {
         const newState = {
-          ...oldData,
-          registerUserError: [...oldData.registerUserError, action.value],
-        };
+            ...oldData,
+            activePost: action.value,
+
+        }
         return newState;
       }
 
-      case "isLoggedIn": {
+      case "Posts": {
         const newState = {
             ...oldData,
-            isLoggedIn: action.value,
+            Posts: action.value,
+
+        }
+        return newState;
+      }
+
+      case "Messages": {
+        const newState = {
+            ...oldData,
+            Messages: action.value,
+
+        }
+        return newState;
+      }
+
+      case "activeMessage": {
+        const newState = {
+            ...oldData,
+            activeMessage: action.value,
 
         }
         return newState;

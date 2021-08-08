@@ -1,16 +1,10 @@
-import React, { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import NavBar from "./NavBar";
 import { RegisterUser } from "./utils";
-import ReactDOM from "react-dom";
-import { store } from "../state";
 import APIResponseMessage from "./APIResponseMessage";
 
 const Register = () => {
-  const { state, dispatch } = useContext(store);
-  let response = {};
-
-  const [APIResponse, setAPIResponse] = useState(response);
+  const [APIResponse, setAPIResponse] = useState({});
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -20,7 +14,7 @@ const Register = () => {
       username,
       password,
     };
-    response = await RegisterUser(creds);
+    const response = await RegisterUser(creds);
     setAPIResponse(response);
   };
 
@@ -35,6 +29,7 @@ const Register = () => {
   return (
     <div>
       <NavBar />
+      <div className = "Register">
       <h3>Register below:</h3>
       <form onSubmit={onFormSubmit}>
         <label>
@@ -46,8 +41,9 @@ const Register = () => {
           <input type="text" value={password} onChange={updatePassword} />
         </label>
 
-        <button type="submit"> Register </button>
+        <button type="submit" className = "message"> Register </button>
       </form>
+      </div>
 
       <APIResponseMessage message={APIResponse} />
     </div>

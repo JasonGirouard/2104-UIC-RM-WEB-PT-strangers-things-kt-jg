@@ -45,20 +45,24 @@ export function LoginUser(creds) {
   )
     .then((response) => response.json())
     .then((result) => {
-      console.log(result);
       return result;
     })
     .catch(console.error);
 }
 
-export async function getPosts() {
+export async function getPosts(token) {
   try {
     const response = await fetch(
-      "https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-PT/posts"
+      "https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-PT/posts",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      },
     );
     const data = await response.json();
     const posts = data.data.posts;
-    console.log(posts);
     return posts;
   } catch (error) {
     throw error;
@@ -81,13 +85,11 @@ export function createPost(post, token) {
   )
     .then((response) => response.json())
     .then((result) => {
-      console.log(result);
       return result;
     })
     .catch(console.error);
 }
 export async function getUserPostsAndMessages(token) {
-  console.log("before the function")
   try {
     const response = await fetch(
       "https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-PT/users/me",
@@ -100,10 +102,52 @@ export async function getUserPostsAndMessages(token) {
     );
 
     const data = await response.json();
-    console.log(data);
-    console.log("end of function")
     return data;
   } catch (error) {
     throw error;
   }
 }
+
+export async function sendPostMessage(post_id, token, message) {
+ 
+  try {
+    const response = await fetch(`https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-PT/posts/${post_id}/messages`,
+    {
+      method: 'POST',
+      headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+ 
+  body: JSON.stringify({
+    message: {
+      content: `${message}`
+    }
+  })
+})
+    const data = await response.json();
+    return data;
+} catch (error) {throw error }}
+
+
+export async function deletePost(post_id, token) {
+  
+  try {
+    const response = await fetch(`https://strangers-things.herokuapp.com/api/2104-UIC-RM-WEB-PT/posts/${post_id}`,
+    {
+      method: 'DELETE',
+      headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+ 
+ 
+})
+    const data = await response.json();
+    return data;
+} catch (error) {throw error }}
+  
+
+
+
+

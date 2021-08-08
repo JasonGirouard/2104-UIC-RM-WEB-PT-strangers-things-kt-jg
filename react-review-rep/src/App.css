@@ -13,21 +13,125 @@
   }
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 1vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+} */
+
+
+.Nav button {
+  border: 1px solid black;
+  color: black;
+  background: white;
+  font-size: large;
+  font-weight: bolder;
+  margin-top: 5px;
+  margin-right: 15px;
+  margin-left: 15px;
+
+}
+
+.Login form, .Register form, .CreatePostForm form {
+    display: flex;
+    flex-direction: column;
+     align-items: start;
+    justify-content: center;
+  
+    padding-left: 50px;
+    padding-top: 5px;
+
 }
 
 .App-link {
   color: #61dafb;
 }
 
+.Post {
+  background: white;
+  border: 2px solid black;
+  margin: 15px;
+  box-shadow: 5px 5px 5px grey;
+}
+
+.renderMessage {
+  background: rgb(227, 227, 227);
+  border: 2px solid black;
+  margin: 15px;
+  box-shadow: 5px 5px 5px grey;
+}
+
+
+.Post button {
+  border: 1px solid black;
+  font-size: large;
+  font-weight: bolder;
+  margin: 15px;
+  /* box-shadow: 2px 2px 2px grey; */
+}
+
+.delete {
+  border: 1px solid black;
+  font-size: large;
+  font-weight: bolder;
+  background: red;
+  color: white;
+}
+
+.message {
+  border: 1px solid black;
+  font-size: large;
+  font-weight: bolder;
+  background: blue;
+  color: white;
+}
+
+.Post h5 {
+  color: red;
+}
+
+input {
+  border: 1px solid black;
+  font-size: large;
+  font-weight: bolder;
+  color: black;
+  margin: 5px;
+  padding: 5px;
+  margin-right: 5px;
+  min-width: 300px;
+}
+
+label {
+  font-size: large;
+  font-weight: bolder;
+  color: black;
+}
+
+
+.error {
+  background: red;
+  color: white;
+  font-weight: bolder;
+  font-size: small;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.success {
+  background: green;
+  color: white;
+  font-weight: bolder;
+  font-size: small;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.Post 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

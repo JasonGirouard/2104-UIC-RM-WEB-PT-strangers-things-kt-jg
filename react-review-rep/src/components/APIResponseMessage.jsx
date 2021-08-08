@@ -1,54 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const APIResponseMessage = ({ message }) => {
-  return Object.keys(message).length === 0 ? 
-    null :
-  message.success == true && message.data.message == null ?
-
-  (
-    <div
-      style={{
-        padding: "1px",
-        backgroundColor: "lightgray",
-        margin: "10px",
-      }}
-    >
-      <h2>Success</h2>
-    </div>
-  ) : 
-
-
-
-  message.data  ?
-  (
-    <div
-      style={{
-        padding: "1px",
-        backgroundColor: "lightgray",
-        margin: "10px",
-      }}
-    >
-      <h2>{message.data.message}</h2>
-    </div>
-  ) : 
-  message.error  ?
-  
-  (
-    <div
-      style={{
-        padding: "1px",
-        backgroundColor: "lightgray",
-        margin: "10px",
-      }}
-    >
-      
-      <h2>{message.error.message}</h2>
-    </div>
-  ) : 
-  null
-  
-
+  if (Object.keys(message).length === 0) {
+    return <div></div>;
+  }
+  if (message.success === false) {
+    return (
+      <div className = "error">
+        <h2>{message.error.message}</h2>
+      </div>
+    );
+  }
+  if (message.success === true) {
+    return (
+      <div className = "success">
+        <h2>Success</h2>
+      </div>
+    );
+  }
 };
 
 export default APIResponseMessage;
